@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel;
 
-namespace MobileApp.MyOnlineLibrary.Entities
+namespace DummyLib.Entities
 {
     public class Book : INotifyPropertyChanged
     {
         private string _name;
         private string _author;
         private string _genre;
+
+        public int Id { get; set; }
 
         public string Name
         {

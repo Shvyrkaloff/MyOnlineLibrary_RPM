@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DummyLib;
+using DummyLib.Entities;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     public partial class App : Application
     {

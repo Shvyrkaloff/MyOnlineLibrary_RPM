@@ -1,9 +1,8 @@
 ﻿using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage

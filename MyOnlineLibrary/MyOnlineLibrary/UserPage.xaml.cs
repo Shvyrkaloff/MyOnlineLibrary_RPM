@@ -1,10 +1,9 @@
-﻿using MobileApp.MyOnlineLibrary.Entities;
-using System;
-
+﻿using System;
+using DummyLib.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage

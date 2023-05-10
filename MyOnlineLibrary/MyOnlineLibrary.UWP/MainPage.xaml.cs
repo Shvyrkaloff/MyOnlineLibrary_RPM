@@ -21,7 +21,7 @@ namespace MobileApp.MyOnlineLibrary.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new MobileApp.MyOnlineLibrary.App());
+            LoadApplication(new global::MyOnlineLibrary.App());
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using MobileApp.MyOnlineLibrary.Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using DummyLib.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookPage : ContentPage
@@ -37,7 +36,7 @@ namespace MobileApp.MyOnlineLibrary
                     var navPage = (NavigationPage)Application.Current.MainPage;
                     var navStack = navPage.Navigation.NavigationStack;
 
-                    if (navStack[navPage.Navigation.NavigationStack.Count - 1] is MainBookPage homePage)
+                    if (navStack[navPage.Navigation.NavigationStack.Count - 1] is global::MyOnlineLibrary.MainBookPage homePage)
                     {
                         homePage.AddBook(Book);
                     }

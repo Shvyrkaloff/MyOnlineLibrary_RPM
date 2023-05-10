@@ -1,25 +1,26 @@
-﻿using MobileApp.MyOnlineLibrary.Entities;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
+using System.Linq;
+using DummyLib;
+using DummyLib.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserBooks : ContentPage
     {
-        protected internal ObservableCollection<Book> Books { get; set; }
+        protected internal List<Book> Books { get; set; }
 
         public UserBooks()
         {
             InitializeComponent();
 
-            Books = new ObservableCollection<Book>
+            using (var context = new MyOnlineLibraryContext())
             {
-                new Book {Name="Приключения Тома Сойера", Author="Марк Твен", Genre="Роман"},
-                new Book {Name="Крокодил Гена и его друзья", Author="Эдуард Успенский", Genre="Фикшн"}
-            };
+                Books = context.Books.ToList();
+            }
             booklist.BindingContext = Books;
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MobileApp.MyOnlineLibrary.Entities
+namespace DummyLib.Entities
 {
     public class User : INotifyPropertyChanged
     {
@@ -8,7 +8,7 @@ namespace MobileApp.MyOnlineLibrary.Entities
 
         private string _login;
         private string _password;
-
+        public int Id { get; set; }
         public string Login
         {
             get => _login;

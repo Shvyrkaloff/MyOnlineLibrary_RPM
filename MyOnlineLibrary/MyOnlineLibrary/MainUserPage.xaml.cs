@@ -1,16 +1,18 @@
-﻿using MobileApp.MyOnlineLibrary.Entities;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
+using System.Linq;
+using DummyLib;
+using DummyLib.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainUserPage : ContentPage
     {
-        protected internal ObservableCollection<User> Users { get; set; }
+        protected internal List<User> Users { get; set; }
 
         public User User { get; set; }
 
@@ -18,11 +20,10 @@ namespace MobileApp.MyOnlineLibrary
         {
             InitializeComponent();
 
-            Users = new ObservableCollection<User>
+            using (var context = new MyOnlineLibraryContext())
             {
-                new User {Login="user1", Password="user1"},
-                new User {Login="user2", Password="user2"}
-            };
+                Users = context.Users.ToList();
+            }
 
             userlist.BindingContext = Users;
         }
@@ -43,7 +44,13 @@ namespace MobileApp.MyOnlineLibrary
 
         protected internal void AddUser(User user)
         {
-            Users.Add(user);
+            using (var context = new MyOnlineLibraryContext())
+            {
+                context.Add(user);
+                context.SaveChanges();
+
+                Users = context.Users.ToList();
+            }
         }
     }
 }

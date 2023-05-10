@@ -1,22 +1,33 @@
-﻿using MobileApp.MyOnlineLibrary.Entities;
+﻿using DummyLib;
+using DummyLib.Entities;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     public partial class MainPage : ContentPage
     {
-        protected internal ObservableCollection<User> Users { get; set; }
+        protected internal List<User> Users { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
-            Users = new ObservableCollection<User>
+
+            using (var context = new MyOnlineLibraryContext())
             {
-                new User {Login="user1", Password="user1"},
-                new User {Login="user2", Password="user2"}
-            };
+                context.Users.Add(new User() { Login = "user1", Password = "user1" });
+                context.Users.Add(new User() { Login = "user2", Password = "user2" });
+                context.Books.Add(new Book() { Name = "book1", Author = "author1", Genre = "Genre1" });
+                context.Books.Add(new Book() { Name = "book2", Author = "author2", Genre = "Genre2" });
+                context.SaveChanges();
+            }
+
+            using (var context = new MyOnlineLibraryContext())
+            {
+                Users = context.Users.ToList();
+            }
         }
 
         //private void RegButton_OnClicked(object sender, EventArgs e)
@@ -118,7 +129,11 @@ namespace MobileApp.MyOnlineLibrary
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            
+            using (var context = new MyOnlineLibraryContext())
+            {
+                Users = context.Users.ToList();
+            }
+
             foreach (var user in Users)
             {
                 if (user.Password == Pas.Text && user.Login == Log.Text)
@@ -147,9 +162,10 @@ namespace MobileApp.MyOnlineLibrary
 
                     break;
                 }
-
-                await DisplayAlert("Error", "Login error", "Ok");
             }
+
+
+            await DisplayAlert("Error", "Login error", "Ok");
         }
     }
 }

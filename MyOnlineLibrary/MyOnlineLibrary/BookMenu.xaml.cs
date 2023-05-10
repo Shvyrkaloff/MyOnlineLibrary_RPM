@@ -1,9 +1,8 @@
 ﻿using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.MyOnlineLibrary
+namespace MyOnlineLibrary
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookMenu : ContentPage
@@ -15,7 +14,7 @@ namespace MobileApp.MyOnlineLibrary
 
         private async void ButtonBooksPage_OnClicked(object sender, EventArgs e)
         {
-            var book = new MainBookPage();
+            var book = new global::MyOnlineLibrary.MainBookPage();
             await Navigation.PushAsync(book);
         }
     }
