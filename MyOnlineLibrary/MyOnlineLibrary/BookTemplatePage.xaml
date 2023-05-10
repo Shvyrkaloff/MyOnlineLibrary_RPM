@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.MyOnlineLibrary.BookTemplatePage">
+    <ContentPage.Content>
+        <StackLayout Margin="10,30,10,0">
+            <Label Text="Приключения Тома Сойера" FontSize="18" TextColor="Black"/>
+            <Label Text="Марк Твен" FontSize="16"/>
+            <Label Text="Сюжет:" FontSize="16" Margin="0,20,0,0" TextColor="Black"/>
+            <Label Text="Том Сойер — веселый и шаловливый мальчик примерно двенадцатилетнего возраста, живёт у тёти Полли, сестры своей покойной матери. В повести описываются различные приключения Тома и его друзей на протяжении нескольких месяцев. В ходе этих приключений он успевает найти свою любовь (Бекки Тэтчер), стать свидетелем убийства и разоблачить убийцу, убежать из дома, чтобы стать пиратом и пожить на острове, заблудиться в пещере и благополучно выбраться из неё, найти драгоценный клад стоимостью в двенадцать тысяч долларов и разделить его со своим другом Гекльберри Финном." FontSize="16" TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
